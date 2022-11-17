@@ -1,0 +1,490 @@
+.f-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -1rem;
+  flex-flow: row wrap;
+}
+
+.f-grid-col {
+  flex: 1 0;
+  background-color: lightgrey;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.text-red {
+  color: red;
+}
+.text-green {
+  color: green;
+}
+.text-sky {
+  color: #0284c7;
+  text-decoration: none;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.text-white {
+  color: whitesmoke;
+}
+element.style {
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.user-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+.top-16 {
+  top: 4rem;
+}
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+.flex {
+  display: flex;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.relative {
+  position: relative;
+}
+@media (max-width: 680px) {
+  .user-right-container.show {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .user-right-container.show {
+    margin-left: 0;
+  }
+}
+.user-right-container.show {
+  margin-left: 90px;
+}
+.user-right-container {
+  margin-left: 330px;
+  transition: width 0.3s;
+  width: 100%;
+}
+.pt-4 {
+  padding-top: 1rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  .md\:pr-0 {
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:pl-0 {
+    padding-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+}
+@media (min-width: 200px) {
+  .xs-s\:pr-4 {
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 200px) {
+  .xs-s\:pl-4 {
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 200px) {
+  .xs-s\:hidden {
+    display: none;
+  }
+}
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.font-medium {
+  font-weight: 500;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.text-gray-700 {
+  color: #374151 !important;
+}
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+.btn-success {
+  background-color: #5cb85c !important;
+  border-color: #4cae4c !important;
+  color: #fff;
+}
+.btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: #212529;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.275rem 0.75rem;
+  text-align: center;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+}
+.btn,
+.form-control {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+[role="button"],
+button {
+  cursor: pointer;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+.max-w-full {
+  max-width: 100%;
+}
+.pl-3 {
+  padding-left: 0.75rem;
+}
+@media (min-width: 200px) {
+  .xs-s\:gap-5 {
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 200px) {
+  .xs-s\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+.grid {
+  display: grid;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 200px) {
+  .xs-s\:pr-4 {
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 200px) {
+  .xs-s\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-white {
+  background: #fff;
+}
+@media (min-width: 200px) {
+  .xs-s\:pl-4 {
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 200px) {
+  .xs-s\:hidden {
+    display: none;
+  }
+}
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.font-medium {
+  font-weight: 500;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.text-gray-700 {
+  color: #374151 !important;
+}
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+*,
+:after,
+:before {
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+}
+user agent stylesheet div {
+  display: block;
+}
+@media (min-width: 768px) {
+  .md\:shadow {
+    --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color),
+      0 1px 2px -1px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+.user-left-container.hide {
+  min-width: 90px;
+  width: 90px;
+}
+
+@media (min-width: 200px) {
+  .xs-s\:hidden {
+    display: none;
+  }
+}
+
+.user-left-container {
+  background: #fff;
+  height: 100%;
+  min-width: 330px;
+  position: absolute;
+  width: 330px;
+}
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-slate-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+body,
+html {
+  color: var(--text-color);
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: inherit;
+  margin: 0;
+}
+:root {
+  --green: green;
+  --greensecond: #4e801d;
+  --red: red;
+  --white: #fff;
+  --gray: #5c5d56;
+  --textnormalcolor: #333;
+  --blue: #174fb7;
+  --bgblue: #1c6789;
+  --headerblue: #2a6a9a;
+  --linkblue: #025f7e;
+  --warning: #ff9800;
+  --bordercolor: #ddd;
+  --borderinput: #ced4da;
+  --background-gray: #f1f1f1;
+  --textcolor: #000;
+  --orange: #e21948;
+  --pink: #a010dc;
+  --bluesecond: #174f70;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+:after,
+:before {
+  --tw-content: "";
+}
+*,
+:after,
+:before {
+  border: 0 solid #e5e7eb;
+  box-sizing: border-box;
+}

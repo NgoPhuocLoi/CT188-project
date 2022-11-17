@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng tin nhà đất</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="text.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+    <style>
+      #khung-bao-ngoai {
+          display: flex;
+            position: relative;
+            width: 80%;
+            /* border: solid blue 3px; */
+            padding: 10px;
+            overflow-y: auto;
+            margin-left: 10%;
+            }
+            #noi-dung-bai-viet {
+            position: relative;
+            width: 65%;                                
+            background: #e8e8e8;
+            float: left;
+            padding: 10px;              
+            }
+            #khung-sidebar {
+            position: fixed;
+            display: inline-block;
+            width: 30%;
+            background: #e8e8e8;
+            /* overflow: auto; */
+            float: right;
+            padding: 10px;
+            margin-left: 6%;
+            }
+            h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            }
+    </style>
+  </head>
+  <body>
+    <header class="sticky-top border-bottom">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="trangchu.html">
+            <img src="./images/logo.png" style="width: 100px" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="trangchu.html"
+                  >Trang chủ</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="muabandat.html">Mua bán nhà đất</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="thuedat.html">Cho thuê nhà đất</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="dangtin.html">Đăng tin nhà đất</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <!-- <div class="not-logged-in"> -->
+              <li class="nav-item">
+                <a class="nav-link" href="dangnhap.html">Đăng nhập</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="dangky.html">Đăng ký</a>
+              </li>
+              <!-- </div> -->
+              <!-- <div class="logged-in"> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Xin chào NPL</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Đăng xuất</a>
+              </li> -->
+
+              <!-- </div> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+      <main>
+        <div class="bg-gray-50" id="khung-bao-ngoai">
+          <div class="user-container">
+            <div class="flex w-full h-full">
+              <!-- <div class="hide user-left-container md:block xs-s:hidden"></div> -->
+              <div class="show max-w-full pt-4  pt-3 pb-3 bg-slate-50">
+                <div class="md:mx-10">
+                  <h1 class="text-gray-700 font-medium text-xl">Đăng tin nhà đất</h1>
+                  <!-- <div class="pl-3"></div> -->
+                  <div class>
+                    <div class="mt-3">
+                      <form class="relative lg-g:pb-0">
+                        <div class="grid lg-g:grid-cols-5 xs-s:grid-cols-1 md:gap-10 xs-s:gap-5 mb-2" id="noi-dung-bai-viet">
+                          <div class="lg-g:col-span-3 xs-s:grid-cols-1 p-3 bg-white md:rounded md:shadow">
+                            <div>
+                              <div>
+                                <h2>Thông tin cơ bản</h2>
+                              <div class="text-gray-500 text-sm mt-3 mb-3">Thông tin có dấu (<span class="text-red">*</span>) là bắt buộc. Không đăng lại tin đã đăng.</div>
+                              <div>
+                                <label><b class="text-green">Loại giao dịch</b><span class="text-red">*</span></label>
+                                <div  class="flex items-center justify-center mt-2">
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Bán</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Cho thuê</label>
+                                  </div>
+                                </div>
+                                <!-- <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Bán
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Cho thuê
+                                  </label>
+                                </div> -->
+                              </div>
+                              <div class="mt-4">
+                                <div>
+                                <label for="exampleDataList" class="form-label"><b class="text-green mb-2">Loại bất động sản</b><span class="text-red">*</span></label>
+                                <input class="form-control" list="loai"  placeholder="Chọn loại bất động sản">
+                                <datalist id="loai">
+                                  <option value="Nhà riêng">
+                                  <option value="Chung cư">
+                                  <option value="Đất nền">
+                                  <option value="Shop house">
+                                  <option value="Bất động sản khác">
+                                </datalist>
+                                </div>
+                              </div>
+                              <div class="mt-4">
+                                <b class="text-green">Địa chỉ bất động sản</b><span class="text-red">*</span>
+                                <div class="mt-2">
+                                  <div class="row g-3">
+                                    <div class="col-sm">
+                                      <label class="mb-2">Tỉnh/thành</b><span class="text-red">*</span></label>
+                                      <input type="text" class="form-control" placeholder="" aria-label="City">
+                                    </div>
+                                    <div class="col-sm">
+                                      <label class="mb-2">Quận/huyện</b><span class="text-red">*</span></label>
+                                      <input type="text" class="form-control" placeholder="" aria-label="State">
+                                    </div>
+                                    <div class="col-sm">
+                                      <label class="mb-2">Phường/xã</b><span class="text-red">*</span></label>
+                                      <input type="text" class="form-control" placeholder="" aria-label="Zip">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mt-4">
+                                <div>
+                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green mt-2">Địa chỉ tin đăng</b><span class="text-red">*</span></label>
+                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                                </div>
+                              </div>
+                              </div>
+                              <div>
+                                <h2>Thông tin bất động sản</h2>
+                              <div>
+                                <div class="mb-3">
+                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green">Diện tích</b><span class="text-red">*</span> (m²)</label>
+                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="VD: 100">
+                                </div>
+                              </div>
+                              <div>
+                                <div class="mb-3">
+                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green">Giá</b><span class="text-red">*</span> (VND)</label>
+                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập giá, VD: 10000000">
+                                </div>
+                                <div></div>
+                              </div>
+                              <div>
+                                  <div class="mb-3">
+                                    <label for="formFileMultiple" class="form-label"><b class="text-green">Hình ảnh BĐS</b><span class="text-red">*</span> <i>(Đăng từ 3 tới 12 hình ảnh khác nhau của bất động sản và không chứa logo khác)</i></label>
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple accept=".png,.jpg,.gif">
+                                  </div>
+                              </div>
+                              <div>               
+                                <div class="mb-3">
+                                  <label for="formFileMultiple" class="form-label"><b class="text-green">Video BĐS</b> <i>(.MP4,.AVI)</i></label>
+                                  <input class="form-control" type="file" id="formFileMultiple" multiple accept=".MP4,.AVI">
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                            <div>
+                              <h2>Thông tin giới thiệu</h2>
+                              <div class="text-gray-500 text-sm mt-3 mb-3">Để duyệt tin nhanh hơn, xin lưu ý: gõ tiếng Việt có dấu và không viết tắt...Không gộp nhiều bất động sản trong một tin đăng.</div>
+                            <div>
+                              <div class="mb-3">
+                                <label for="formGroupExampleInput" class="form-label"><b class="text-green">Tiêu đề</b><span class="text-red">*</span> <i>(Không nhập chữ in hoa. Từ 40-120 ký tự)</i></label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="VD: Bán nhà 150m² chính chủ quận Ninh Kiều ">
+                              </div>
+                              <div></div>
+                            </div>
+                            <div>
+                              
+                              <div>
+                                <div class="mb-3">
+                                  <label for="exampleFormControlTextarea1" class="form-label"><b class="text-green">Giới thiệu</b><span class="text-red">*</span><i> (Tối thiểu 100 ký tự)</i></label>
+                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Nhập giới thiệu chung về bất động sản của bạn"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                            <div>
+                              <div>
+                                <a href="#" class="text-sky mb-4">Quy định đăng tin</a>
+                              </div>
+                              <div>
+                                <div class="form-check mt-2">
+                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                                  <label class="form-check-label" for="flexCheckChecked">
+                                    Tôi đồng ý với <a href="#" class="text-sky">điều khoản sử dụng</a>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="lg-g:col-span-2 xs-s:grid-cols-1" id="khung-sidebar">
+                            <div class="p-3 bg-white md:rounded md:shadow sticky top-16">
+                              <div>
+                                <div class="mt-4">
+                                  <label for="exampleDataList" class="form-label mb-2">Loại tin đăng</label>
+                                  <input class="form-control" list="tin"placeholder="Chọn loại tin đăng">
+                                  <datalist id="tin">
+                                    <option value="Tin Vip 1">
+                                    <option value="Tin Vip 2">
+                                    <option value="Tin Vip 3">
+                                    <option value="Tin thường">
+                                    <option value="Miễn phí">
+                                  </datalist>
+                                </div>
+                              </div>
+                              <div>
+                                <div class="mt-4">
+                                  <label for="exampleDataList" class="form-label mb-2">Số ngày đăng<span class="text-red">*</span></label>
+                                  <input class="form-control" list="ngay" id="exampleDataList" placeholder="Chọn số ngày đăng">
+                                  <datalist id="ngay">
+                                    <option value="15">
+                                    <option value="20">
+                                    <option value="30">
+                                    <option value="60">
+                                    <option value="90">
+                                    <option value="120">
+                                    <option value="150">
+                                    <option value="180">
+                                    <option value="270">
+                                  </datalist>
+                                </div>
+                              </div>
+                              <div class="mt-4">
+                                <button class="btn btn-success rounded-3xl w-full text-white" type="submit">Đăng tin</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>                 
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </main>        
+
+    <footer id="footer">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-sm-6 col-lg-3">
+            <h6 class="fs-4">Hỗ trợ khách hàng</h6>
+            <ul class="p-0">
+              <li class="pt-2">
+                <a class="link-secondary" href="">Quy định đăng tin</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Quy chế hoạt động</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Điều khoản sử dụng</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Chính sách bảo mật</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Hướng dẫn thanh toán</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <h6 class="fs-4">Quảng cáo</h6>
+            <ul class="p-0">
+              <li class="pt-2">
+                <a href="" class="link-secondary">Báo giá đăng tin</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Báo giá banner</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Dự án bất động sản</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Đặt logo thương hiệu</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Bài viết tin tức PR</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <h6 class="fs-4">Kết nối với chúng tôi</h6>
+            <ul class="p-0">
+              <div class="d-flex">
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+              </div>
+              <div class="d-flex">
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="link-secondary p-2 m-2 d-flex justify-content-center align-items-center p-2 rounded-circle border border-secondary"
+                >
+                  <i class="fa-brands fa-pinterest"></i>
+                </a>
+              </div>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <h6 class="fs-4">Hỗ trợ khách hàng</h6>
+            <ul class="p-0">
+              <li class="pt-2">
+                <a class="link-secondary" href="">Quy định đăng tin</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Quy chế hoạt động</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Điều khoản sử dụng</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Chính sách bảo mật</a>
+              </li>
+              <li class="pt-2">
+                <a href="" class="link-secondary">Hướng dẫn thanh toán</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

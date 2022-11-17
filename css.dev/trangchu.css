@@ -1,0 +1,40 @@
+.product-info-container {
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 13px;
+}
+
+.product-price span {
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-weight: 600;
+  cursor: pointer;
+  color: #222;
+}
+
+.product-address {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.news-title {
+  display: block;
+  font-size: 20px;
+  color: #222;
+  font-weight: 700;
+  margin: 10px 0;
+}
