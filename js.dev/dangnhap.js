@@ -45,7 +45,7 @@ function checkForm(e) {
 
   alert("Đăng nhập thành công");
   localStorage.setItem("isAuthorized", true);
-  window.location.href = "trangchu.html";
+  window.location.href = "index.html";
   return true;
 }
 

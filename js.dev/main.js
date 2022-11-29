@@ -1145,7 +1145,7 @@ function app() {
   initUser();
   checkLogin();
 
-  if (currentLocation.includes("trangchu")) {
+  if (currentLocation.includes("index") || currentLocation === "/") {
     const forSaleLists = document.querySelector(".js-forSale-list");
     const forRentLists = document.querySelector(".js-forRent-list");
     renderHousesInMainPage(forSaleLists, housesForSale, 4, "sale");
