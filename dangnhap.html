@@ -7,6 +7,7 @@
     <title>Đăng nhập</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css.dev/auth.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -16,9 +17,10 @@
     />
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
   </head>
+
   <body>
     <header class="sticky-top border-bottom">
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg bg-light shadow">
         <div class="container-fluid">
           <a class="navbar-brand" href="trangchu.html">
             <img src="./images/logo.png" style="width: 100px" alt="" />
@@ -37,10 +39,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="trangchu.html"
+                <a class="nav-link" aria-current="page" href="trangchu.html"
                   >Trang chủ</a
                 >
               </li>
@@ -54,32 +53,59 @@
                 <a class="nav-link" href="dangtin.html">Đăng tin nhà đất</a>
               </li>
             </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <!-- <div class="not-logged-in"> -->
-              <li class="nav-item">
-                <a class="nav-link" href="dangnhap.html">Đăng nhập</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="dangky.html">Đăng ký</a>
-              </li>
-              <!-- </div> -->
-              <!-- <div class="logged-in"> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Xin chào NPL</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Đăng xuất</a>
-              </li> -->
-
-              <!-- </div> -->
-            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 js-right-menu"></ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <main class="main">
-      <h1>Đăng nhập</h1>
+    <main class="container">
+      <div id="wrapper">
+        <form id="form" class="login-form">
+          <h1 class="form-heading">Đăng Nhập</h1>
+          <div class="form-group">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              size="35"
+              id="email"
+              class="form-input"
+              placeholder="Nhập Email Đã Đăng Ký"
+            />
+          </div>
+          <div class="form-group">
+            <i class="fa-sharp fa-solid fa-key"></i>
+            <input
+              type="password"
+              id="password"
+              size="32"
+              class="form-input"
+              placeholder="Mật Khẩu"
+            />
+            <span id="eyeOpen" onclick="showHide()">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+            <span id="eyeClose" class="hide" onclick="showHide()"
+              ><i class="fa-solid fa-eye-slash"></i
+            ></span>
+          </div>
+          <div>
+            <a href="#" style="text-decoration: none">Quên mật khẩu?</a>
+          </div>
+          <input type="submit" value="Đăng Nhập" class="form-submit" />
+
+          <!-- <div style="text-align: center; color: white">Hoặc</div>
+          <button class="form-btn">Đăng nhập với Google</button> -->
+          <div style="color: white; text-align: center; margin-bottom: 15px">
+            Chưa có tài khoản?
+          </div>
+          <div>
+            <a href="dangky.html"
+              ><input type="button" id="dangky" value="Đăng ký"
+            /></a>
+          </div>
+        </form>
+      </div>
     </main>
 
     <footer id="footer">
@@ -194,5 +220,6 @@
       </div>
     </footer>
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js.dev/dangnhap.js"></script>
   </body>
 </html>

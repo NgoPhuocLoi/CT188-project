@@ -8,12 +8,24 @@ a {
   text-decoration: none;
 }
 
+body {
+  background-color: #f8fafc;
+}
+
 /* ========================CHUNG ======================*/
 .main {
   /* height: 100vh; */
 }
 
-header .nav-item:hover {
+header .nav-item {
+  margin-left: 20px;
+}
+
+header .nav-link:hover {
+  border-bottom: 2px solid red;
+}
+
+header .nav-link.active {
   border-bottom: 2px solid red;
 }
 
@@ -41,4 +53,126 @@ header .nav-item:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+}
+
+.carousel-inner {
+  max-height: 235px;
+}
+
+.go-to-top {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  background-color: red;
+  color: #fff;
+}
+
+.go-to-top:hover {
+  opacity: 0.9;
+}
+
+/* ========== */
+
+.product-info-container {
+  overflow: hidden;
+}
+
+.product-info-container img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-price {
+  font-size: 13px;
+  color: #000;
+}
+
+.product-price > span {
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+}
+
+.product-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.product-name {
+  font-weight: 600;
+  cursor: pointer;
+  color: #222;
+}
+
+.product-address {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+/* DANG TIN */
+
+.post-list img {
+  height: 240px;
+  object-fit: cover;
+}
+
+.delete-btn i {
+  color: red;
+  padding: 10px;
+  font-size: 30px;
+  transform: translateX(20px);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 992px) {
+  .delete-btn {
+    background-color: red;
+    width: 60%;
+    margin: 20px auto 0;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .delete-btn i {
+    color: #fff;
+    font-size: 20px;
+    transform: none;
+  }
+}
+
+.alert {
+  max-width: 60%;
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: antiquewhite;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.alert span {
+  cursor: pointer;
 }

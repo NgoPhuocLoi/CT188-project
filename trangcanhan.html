@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Đăng Ký</title>
+    <title>Trang chủ</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/custom.css" />
-    <link rel="stylesheet" href="./css.dev/auth.css" />
+    <link rel="stylesheet" href="./css.dev/trangchu.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -57,98 +57,64 @@
         </div>
       </nav>
     </header>
-    <main class="main my-3">
-      <div id="wrapper">
-        <form class="register-form" action="" id="form">
-          <h1 class="form-heading">Đăng Ký</h1>
-          <div class="form-group">
-            <i class="fa-regular fa-user"></i>
-            <input
-              type="text"
-              size="35"
-              class="form-input"
-              placeholder="Họ và tên"
-              name="name"
+
+    <main class="container">
+      <div class="row bg-white shadow my-4">
+        <div class="col-md-6 d-flex p-3">
+          <img
+            src="https://randomuser.me/api/portraits/men/22.jpg"
+            class="rounded-circle"
+            alt=""
+          />
+          <div class="ms-5">
+            <h3>Alfredo Newman</h3>
+            <div class="fw-semibold my-1">
+              <span class="text-secondary fw-normal">Số điện thoại: </span>
+              0123213132
+            </div>
+            <div class="fw-semibold my-1">
+              <span class="text-secondary fw-normal">Email: </span>
+              user@gmail.com
+            </div>
+            <div class="fw-semibold my-1">
+              <span class="text-secondary fw-normal">Địa chỉ: </span>Chưa cung
+              cấp
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 p-3">
+          <div class="fw-semibold my-1">
+            <img
+              src="https://static.chotot.com/storage/marketplace/common/pf_rating_icon.svg"
             />
+            <span class="text-secondary fw-normal">Đánh giá: </span>
+            chưa có đánh giá
           </div>
-          <div class="form-group">
-            <i class="fa-solid fa-phone"></i>
-            <input
-              type="text"
-              size="35"
-              class="form-input"
-              placeholder="Số điện thoại"
-              name="phone"
+          <div class="fw-semibold my-1">
+            <img
+              class=""
+              src="https://static.chotot.com/storage/CT_WEB_UNI_PUBLIC_PROFILE/user/static/img/calendar.png"
+              height="16"
+              alt=""
             />
+            <span class="text-secondary fw-normal">Ngày tham gia: </span>
+            26/11/2022
           </div>
-          <div class="form-group">
-            <i class="fa-regular fa-envelope"></i>
-            <input
-              type="text"
-              size="35"
-              id="email"
-              class="form-input"
-              placeholder="Email"
-              name="email"
+          <div class="fw-semibold my-1">
+            <img
+              class=""
+              src="https://static.chotot.com/storage/CT_WEB_UNI_PUBLIC_PROFILE/user/static/img/chat.png"
+              height="16"
+              alt=""
             />
+            <span class="text-secondary fw-normal">Phản hồi chat: </span>Chưa có
+            thông tin
           </div>
-          <div class="form-group">
-            <i class="fa-sharp fa-solid fa-key"></i>
-            <input
-              type="password"
-              id="password"
-              size="32"
-              class="form-input"
-              placeholder="Mật Khẩu"
-              name="password"
-            />
-            <span
-              id="eyeOpen"
-              onclick="showHide('password', 'eyeOpen', 'eyeClose')"
-            >
-              <i class="fa-solid fa-eye"></i>
-            </span>
-            <span
-              id="eyeClose"
-              class="hide"
-              onclick="showHide('password', 'eyeOpen', 'eyeClose')"
-              ><i class="fa-solid fa-eye-slash"></i
-            ></span>
-          </div>
-          <div class="form-group">
-            <i class="fa-sharp fa-solid fa-key"></i>
-            <input
-              type="password"
-              id="password1"
-              size="32"
-              class="form-input"
-              placeholder="Nhập Lại Mật Khẩu"
-              name="confirmPassword"
-            />
-            <span
-              id="eyeOpen1"
-              onclick="showHide('password1', 'eyeOpen1', 'eyeClose1')"
-            >
-              <i class="fa-solid fa-eye"></i>
-            </span>
-            <span
-              id="eyeClose1"
-              class="hide"
-              onclick="showHide('password1', 'eyeOpen1', 'eyeClose1')"
-              ><i class="fa-solid fa-eye-slash"></i
-            ></span>
-          </div>
-          <input type="submit" value="Đăng ký" class="form-btn register-btn" />
-          <div class="form-agree">
-            Đã có tài khoản? <a href="dangnhap.html">Đăng nhập.</a>
-          </div>
-          <div class="form-agree">
-            Bằng việc nhấn đăng ký, bạn đã đồng ý với
-            <a href="#">điều khoản sử dụng.</a>
-          </div>
-        </form>
+        </div>
       </div>
     </main>
+
+    <div class="go-to-top"><i class="fa-solid fa-arrow-up"></i></div>
 
     <footer id="footer">
       <div class="container py-4">
@@ -262,7 +228,6 @@
       </div>
     </footer>
     <script src="./js/bootstrap.bundle.min.js"></script>
-
     <script src="./js.dev/main.js"></script>
   </body>
 </html>

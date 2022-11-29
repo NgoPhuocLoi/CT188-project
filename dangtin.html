@@ -14,49 +14,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="text.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
-    <style>
-      #khung-bao-ngoai {
-          display: flex;
-            position: relative;
-            width: 80%;
-            /* border: solid blue 3px; */
-            padding: 10px;
-            overflow-y: auto;
-            margin-left: 10%;
-            }
-            #noi-dung-bai-viet {
-            position: relative;
-            width: 65%;                                
-            background: #e8e8e8;
-            float: left;
-            padding: 10px;              
-            }
-            #khung-sidebar {
-            position: fixed;
-            display: inline-block;
-            width: 30%;
-            background: #e8e8e8;
-            /* overflow: auto; */
-            float: right;
-            padding: 10px;
-            margin-left: 6%;
-            }
-            h2 {
-            display: block;
-            font-size: 1.5em;
-            margin-block-start: 0.83em;
-            margin-block-end: 0.83em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            font-weight: bold;
-            }
-    </style>
   </head>
   <body>
     <header class="sticky-top border-bottom">
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav class="navbar navbar-expand-lg bg-light shadow">
         <div class="container-fluid">
           <a class="navbar-brand" href="trangchu.html">
             <img src="./images/logo.png" style="width: 100px" alt="" />
@@ -75,10 +37,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="trangchu.html"
+                <a class="nav-link" aria-current="page" href="trangchu.html"
                   >Trang chủ</a
                 >
               </li>
@@ -89,225 +48,532 @@
                 <a class="nav-link" href="thuedat.html">Cho thuê nhà đất</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="dangtin.html">Đăng tin nhà đất</a>
+                <a class="nav-link active" href="dangtin.html"
+                  >Đăng tin nhà đất</a
+                >
               </li>
             </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0">
-              <!-- <div class="not-logged-in"> -->
-              <li class="nav-item">
-                <a class="nav-link" href="dangnhap.html">Đăng nhập</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="dangky.html">Đăng ký</a>
-              </li>
-              <!-- </div> -->
-              <!-- <div class="logged-in"> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Xin chào NPL</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Đăng xuất</a>
-              </li> -->
-
-              <!-- </div> -->
-            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 js-right-menu"></ul>
           </div>
         </div>
       </nav>
     </header>
-      <main>
-        <div class="bg-gray-50" id="khung-bao-ngoai">
-          <div class="user-container">
-            <div class="flex w-full h-full">
-              <!-- <div class="hide user-left-container md:block xs-s:hidden"></div> -->
-              <div class="show max-w-full pt-4  pt-3 pb-3 bg-slate-50">
-                <div class="md:mx-10">
-                  <h1 class="text-gray-700 font-medium text-xl">Đăng tin nhà đất</h1>
-                  <!-- <div class="pl-3"></div> -->
-                  <div class>
-                    <div class="mt-3">
-                      <form class="relative lg-g:pb-0">
-                        <div class="grid lg-g:grid-cols-5 xs-s:grid-cols-1 md:gap-10 xs-s:gap-5 mb-2" id="noi-dung-bai-viet">
-                          <div class="lg-g:col-span-3 xs-s:grid-cols-1 p-3 bg-white md:rounded md:shadow">
-                            <div>
-                              <div>
-                                <h2>Thông tin cơ bản</h2>
-                              <div class="text-gray-500 text-sm mt-3 mb-3">Thông tin có dấu (<span class="text-red">*</span>) là bắt buộc. Không đăng lại tin đã đăng.</div>
-                              <div>
-                                <label><b class="text-green">Loại giao dịch</b><span class="text-red">*</span></label>
-                                <div  class="flex items-center justify-center mt-2">
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Bán</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Cho thuê</label>
-                                  </div>
-                                </div>
-                                <!-- <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                  <label class="form-check-label" for="flexRadioDefault1">
-                                    Bán
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                  <label class="form-check-label" for="flexRadioDefault2">
-                                    Cho thuê
-                                  </label>
-                                </div> -->
-                              </div>
-                              <div class="mt-4">
-                                <div>
-                                <label for="exampleDataList" class="form-label"><b class="text-green mb-2">Loại bất động sản</b><span class="text-red">*</span></label>
-                                <input class="form-control" list="loai"  placeholder="Chọn loại bất động sản">
-                                <datalist id="loai">
-                                  <option value="Nhà riêng">
-                                  <option value="Chung cư">
-                                  <option value="Đất nền">
-                                  <option value="Shop house">
-                                  <option value="Bất động sản khác">
-                                </datalist>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <b class="text-green">Địa chỉ bất động sản</b><span class="text-red">*</span>
-                                <div class="mt-2">
-                                  <div class="row g-3">
-                                    <div class="col-sm">
-                                      <label class="mb-2">Tỉnh/thành</b><span class="text-red">*</span></label>
-                                      <input type="text" class="form-control" placeholder="" aria-label="City">
-                                    </div>
-                                    <div class="col-sm">
-                                      <label class="mb-2">Quận/huyện</b><span class="text-red">*</span></label>
-                                      <input type="text" class="form-control" placeholder="" aria-label="State">
-                                    </div>
-                                    <div class="col-sm">
-                                      <label class="mb-2">Phường/xã</b><span class="text-red">*</span></label>
-                                      <input type="text" class="form-control" placeholder="" aria-label="Zip">
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <div>
-                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green mt-2">Địa chỉ tin đăng</b><span class="text-red">*</span></label>
-                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
-                                </div>
-                              </div>
-                              </div>
-                              <div>
-                                <h2>Thông tin bất động sản</h2>
-                              <div>
-                                <div class="mb-3">
-                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green">Diện tích</b><span class="text-red">*</span> (m²)</label>
-                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="VD: 100">
-                                </div>
-                              </div>
-                              <div>
-                                <div class="mb-3">
-                                  <label for="formGroupExampleInput" class="form-label"><b class="text-green">Giá</b><span class="text-red">*</span> (VND)</label>
-                                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập giá, VD: 10000000">
-                                </div>
-                                <div></div>
-                              </div>
-                              <div>
-                                  <div class="mb-3">
-                                    <label for="formFileMultiple" class="form-label"><b class="text-green">Hình ảnh BĐS</b><span class="text-red">*</span> <i>(Đăng từ 3 tới 12 hình ảnh khác nhau của bất động sản và không chứa logo khác)</i></label>
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple accept=".png,.jpg,.gif">
-                                  </div>
-                              </div>
-                              <div>               
-                                <div class="mb-3">
-                                  <label for="formFileMultiple" class="form-label"><b class="text-green">Video BĐS</b> <i>(.MP4,.AVI)</i></label>
-                                  <input class="form-control" type="file" id="formFileMultiple" multiple accept=".MP4,.AVI">
-                                </div>
-                              </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h2>Thông tin giới thiệu</h2>
-                              <div class="text-gray-500 text-sm mt-3 mb-3">Để duyệt tin nhanh hơn, xin lưu ý: gõ tiếng Việt có dấu và không viết tắt...Không gộp nhiều bất động sản trong một tin đăng.</div>
-                            <div>
-                              <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label"><b class="text-green">Tiêu đề</b><span class="text-red">*</span> <i>(Không nhập chữ in hoa. Từ 40-120 ký tự)</i></label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="VD: Bán nhà 150m² chính chủ quận Ninh Kiều ">
-                              </div>
-                              <div></div>
-                            </div>
-                            <div>
-                              
-                              <div>
-                                <div class="mb-3">
-                                  <label for="exampleFormControlTextarea1" class="form-label"><b class="text-green">Giới thiệu</b><span class="text-red">*</span><i> (Tối thiểu 100 ký tự)</i></label>
-                                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Nhập giới thiệu chung về bất động sản của bạn"></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            </div>
-                            <div>
-                              <div>
-                                <a href="#" class="text-sky mb-4">Quy định đăng tin</a>
-                              </div>
-                              <div>
-                                <div class="form-check mt-2">
-                                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                  <label class="form-check-label" for="flexCheckChecked">
-                                    Tôi đồng ý với <a href="#" class="text-sky">điều khoản sử dụng</a>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          </div>
-                          <div class="lg-g:col-span-2 xs-s:grid-cols-1" id="khung-sidebar">
-                            <div class="p-3 bg-white md:rounded md:shadow sticky top-16">
-                              <div>
-                                <div class="mt-4">
-                                  <label for="exampleDataList" class="form-label mb-2">Loại tin đăng</label>
-                                  <input class="form-control" list="tin"placeholder="Chọn loại tin đăng">
-                                  <datalist id="tin">
-                                    <option value="Tin Vip 1">
-                                    <option value="Tin Vip 2">
-                                    <option value="Tin Vip 3">
-                                    <option value="Tin thường">
-                                    <option value="Miễn phí">
-                                  </datalist>
-                                </div>
-                              </div>
-                              <div>
-                                <div class="mt-4">
-                                  <label for="exampleDataList" class="form-label mb-2">Số ngày đăng<span class="text-red">*</span></label>
-                                  <input class="form-control" list="ngay" id="exampleDataList" placeholder="Chọn số ngày đăng">
-                                  <datalist id="ngay">
-                                    <option value="15">
-                                    <option value="20">
-                                    <option value="30">
-                                    <option value="60">
-                                    <option value="90">
-                                    <option value="120">
-                                    <option value="150">
-                                    <option value="180">
-                                    <option value="270">
-                                  </datalist>
-                                </div>
-                              </div>
-                              <div class="mt-4">
-                                <button class="btn btn-success rounded-3xl w-full text-white" type="submit">Đăng tin</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>                 
-                      </form>
-                    </div>
+
+    <main class="container mt-4">
+      <div class="d-flex justify-content-between mb-3">
+        <h3>Các tin đã đăng</h3>
+
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          data-bs-toggle="modal"
+          data-bs-target="#formModal"
+        >
+          Đăng tin
+        </button>
+      </div>
+
+      <div class="row post-list">
+        <div class="alert">
+          Bạn chưa có bài đăng nào.
+          <span
+            class="link-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#formModal"
+            >Đăng tin ngay</span
+          >
+        </div>
+        <!-- <div class="col-lg-12 col-md-6" id="post-1">
+          <div class="p-3 border rounded mb-4 shadow">
+            <div class="row">
+              <div class="col-md-12 col-lg-4">
+                <img
+                  src="./images/chitietsanpham/HinhLinhtinh/mod1.jpg"
+                  class="rounded w-100"
+                  alt=""
+                />
+              </div>
+
+              <div class="col-lg-7">
+                <a
+                  class="link-secondary fw-bold fs-4 text-limit-2 my-2"
+                  href="#"
+                  >Bán nhà riêng 120 mét vuông, nhà còn đang trống Bán nhà riêng
+                  120 mét vuông, nhà còn đang trống Bán nhà riêng 120 mét vuông,
+                  nhà còn đang trống</a
+                >
+
+                <div class="text-secondary my-1">
+                  <i class="fa-solid fa-location-dot me-2"></i>Xã Liên Mạc,
+                  Huyện Mê Linh, TP. Hà Nội
+                </div>
+
+                <div class="d-flex gap-5 my-2">
+                  <div class="fw-semibold">Bán nhà riêng</div>
+                  <div class="fw-semibold">
+                    <span class="text-secondary fs-6 fw-normal">Giá: </span>120
+                    triệu
                   </div>
+                  <div class="fw-semibold">
+                    <span class="text-secondary fs-6 fw-normal"
+                      >Diện tích: </span
+                    >100 m²
+                  </div>
+                </div>
+
+                <div class="d-flex gap-5 my-2">
+                  <div class="fw-semibold">
+                    <span class="text-secondary fs-6 fw-normal"
+                      >Phòng ngủ: </span
+                    >1
+                  </div>
+                  <div class="fw-semibold">
+                    <span class="text-secondary fs-6 fw-normal"
+                      >Phòng tắm: </span
+                    >2
+                  </div>
+                  <div class="fw-semibold">
+                    <span class="text-secondary fs-6 fw-normal">Hướng: </span
+                    >Bắc
+                  </div>
+                </div>
+
+                <div class="fw-semibold my-2">
+                  <span class="text-secondary fs-6 fw-normal">Ngày đăng: </span
+                  >26/11/2022
+                </div>
+                <div class="fw-semibold my-2">
+                  <span class="text-secondary fs-6 fw-normal"
+                    >Vị trí tin đăng: </span
+                  >Bán nhà riêng Huyện Mê Linh
+                </div>
+              </div>
+
+              <div class="col-lg-1 delete-btn">
+                <i
+                  class="fa-solid fa-circle-xmark"
+                  onclick="handleDeletePost(1)"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </main>
+
+    <!-- MODAL -->
+    <div
+      class="modal fade"
+      id="formModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Đăng tin nhà đất</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row mt-4">
+                <div class="col-12">
+                  <form
+                    class="row g-3 needs-validation border p-3 rounded js-post-form"
+                    novalidate
+                  >
+                    <div>
+                      <div class="row">
+                        <h4>Thông tin cơ bản</h4>
+                        <p>Thông tin có dấu (*) là bắt buộc</p>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Loại giao dịch*</h6>
+                          <div
+                            class="d-flex justify-content-center align-items-center"
+                          >
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="loaigiaodich"
+                                id="loaigiaodich1"
+                                value="Bán"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="loaigiaodich1"
+                              >
+                                Bán
+                              </label>
+                            </div>
+                            <div class="form-check ms-4">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="loaigiaodich"
+                                id="loaigiaodich2"
+                                value="Cho thuê"
+                                checked
+                              />
+                              <label
+                                class="form-check-label"
+                                for="loaigiaodich2"
+                              >
+                                Cho thuê
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Loại bất động sản*</h6>
+
+                          <input
+                            class="form-control"
+                            list="loai"
+                            name="loaiBDS"
+                            placeholder="Chọn loại bất động sản"
+                            required
+                          />
+                          <datalist id="loai">
+                            <option value="Nhà riêng"></option>
+                            <option value="Chung cư"></option>
+                            <option value="Đất nền"></option>
+                            <option value="Shop house"></option>
+                            <option value="Bất động sản khác"></option>
+                          </datalist>
+
+                          <div class="invalid-feedback">
+                            Vui lòng chọn loại bất động sản.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <h6 class="input-label">Địa chỉ bất động sản</h6>
+
+                        <div class="col-md-4">
+                          <label for="tinh" class="form-label"
+                            >Tỉnh/thành*</label
+                          >
+                          <select class="form-select" id="tinh" required>
+                            <option selected disabled value="">Chọn</option>
+                            <option class="Cần Thơ">Cần Thơ</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Vui lòng chọn 1 tỉnh/thành.
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="quan" class="form-label"
+                            >Quận/huyện*</label
+                          >
+                          <select class="form-select" id="quan" required>
+                            <option selected disabled value="">Chọn</option>
+                            <option value="Ô Môn">Ô Môn</option>
+                            <option value="Ninh Kiều">Ninh Kiều</option>
+                            <option value="Cái Răng">Cái Răng</option>
+                            <option value="Bình Thủy">Bình Thủy</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Vui lòng chọn 1 quận/huyện.
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label for="phuong" class="form-label"
+                            >Phường/xã*</label
+                          >
+                          <select class="form-select" id="phuong" required>
+                            <option selected disabled value="">Chọn</option>
+                            <option value="Thới Long">Thới Long</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Vui lòng chọn 1 phường/xã.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Địa chỉ đăng tin*</h6>
+
+                          <input class="form-control" name="diachi" required />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-5">
+                      <div class="row">
+                        <h4>Thông tin nhà đất</h4>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Diện tích*</h6>
+
+                          <div class="input-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="VD: 100"
+                              name="dientich"
+                              aria-label="Recipient's username"
+                              aria-describedby="basic-addon2"
+                              required
+                            />
+                            <span class="input-group-text" id="basic-addon2"
+                              >m²</span
+                            >
+                            <div class="invalid-feedback">
+                              Vui lòng nhập diện tích.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Giá bán*</h6>
+
+                          <div class="input-group">
+                            <input
+                              type="number"
+                              class="form-control"
+                              placeholder="VD: 12  "
+                              name="giaban"
+                              aria-label="Recipient's username"
+                              aria-describedby="basic-addon2"
+                              required
+                            />
+                            <span class="input-group-text" id="basic-addon2"
+                              >triệu đồng</span
+                            >
+                            <div class="invalid-feedback">
+                              Vui lòng nhập giá bán phù hợp.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-lg-4 mt-3">
+                          <h6 class="input-label">Số phòng ngủ*</h6>
+                          <div
+                            class="d-flex justify-content-start align-items-center"
+                          >
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-ngu"
+                                id="phong-ngu1"
+                                checked
+                                value="1"
+                              />
+                              <label class="form-check-label" for="phong-ngu1">
+                                1
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-ngu"
+                                id="phong-ngu2"
+                                value="2"
+                              />
+                              <label class="form-check-label" for="phong-ngu2">
+                                2
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-ngu"
+                                id="phong-ngu3"
+                                value="3"
+                              />
+                              <label class="form-check-label" for="phong-ngu3">
+                                3
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-ngu"
+                                id="phong-ngu4"
+                                value="4+"
+                              />
+                              <label class="form-check-label" for="phong-ngu4">
+                                4+
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 mt-3">
+                          <h6 class="input-label">Số phòng tắm*</h6>
+                          <div
+                            class="d-flex justify-content-start align-items-center"
+                          >
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-tam"
+                                id="phong-tam1"
+                                value="1"
+                              />
+                              <label class="form-check-label" for="phong-tam1">
+                                1
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-tam"
+                                id="phong-tam2"
+                                value="2"
+                                checked
+                              />
+                              <label class="form-check-label" for="phong-tam2">
+                                2
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-tam"
+                                id="phong-tam3"
+                                value="3"
+                              />
+                              <label class="form-check-label" for="phong-tam3">
+                                3
+                              </label>
+                            </div>
+                            <div class="form-check ms-3">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="phong-tam"
+                                id="phong-tam4"
+                                value="4+"
+                              />
+                              <label class="form-check-label" for="phong-tam4">
+                                4+
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 mt-3">
+                          <h6 class="input-label">Hướng*</h6>
+                          <select class="form-select" id="huong" required>
+                            <option selected disabled value="">Chọn</option>
+                            <option value="Đông">Đông</option>
+                            <option value="Tây">Tây</option>
+                            <option value="Nam">Nam</option>
+                            <option value="Bắc">Bắc</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Vui lòng chọn hướng.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Hình ảnh BĐS*</h6>
+                          <input
+                            required
+                            class="form-control"
+                            type="file"
+                            id="formFile"
+                          />
+                          <div class="invalid-feedback">
+                            Vui lòng đăng chọn ít nhất 1.
+                          </div>
+                          <img id="testFileImg" src="" alt="" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="mt-5">
+                      <div class="row">
+                        <h4>Thông tin giới thiệu</h4>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Tiêu đề*</h6>
+
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="VD: Bán nhà riêng chính chủ có sổ hồng"
+                              required
+                              name="tieude"
+                            />
+                            <div class="invalid-feedback">
+                              Vui lòng nhập tiêu đề.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-4">
+                        <div class="col-12">
+                          <h6 class="input-label">Giới thiệu*</h6>
+
+                          <div class="input-group">
+                            <textarea
+                              class="form-control"
+                              placeholder="Nhập giới thiệu nội dung về BĐS của bạn"
+                              rows="8"
+                              required
+                              name="gioithieu"
+                            ></textarea>
+                            <div class="invalid-feedback">
+                              Vui lòng nhập giới thiệu.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-end">
+                      <button
+                        class="btn btn-primary js-submit-btn"
+                        type="submit"
+                      >
+                        Đăng tin
+                      </button>
+
+                      <button
+                        type="button"
+                        class="btn btn-secondary ms-3"
+                        data-bs-dismiss="modal"
+                      >
+                        Đóng
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </div> 
-      </main>        
+        </div>
+      </div>
+    </div>
+
+    <div class="go-to-top"><i class="fa-solid fa-arrow-up"></i></div>
 
     <footer id="footer">
       <div class="container py-4">
@@ -420,6 +686,33 @@
         </div>
       </div>
     </footer>
+
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <script>
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+    <!-- <script src="./js.dev/post.js"></script> -->
+    <script src="./js.dev/main.js"></script>
   </body>
 </html>
