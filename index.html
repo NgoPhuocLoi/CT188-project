@@ -371,7 +371,7 @@
         </div>
         <div class="row js-forSale-list">
           <div class="col-lg-3">
-            <div class="rounded product-info-container">
+            <div class="rounded product-info-container position-relative">
               <img class="w-100" src="./images/trangchu/img1.jpg" alt="" />
               <div class="product-info border p-2 pb-3">
                 <p class="product-price mb-2">
@@ -394,6 +394,10 @@
                   </span>
                 </div>
               </div>
+              <i
+                class="fa-regular fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
+                style="top: 10px; right: 10px; cursor: pointer"
+              ></i>
             </div>
           </div>
           <div class="col-lg-3">
@@ -598,15 +602,21 @@
           <div class="col-sm-6 mb-4">
             <div class="news-container">
               <img
-                class="w-100 rounded-3"
+                class="w-100 rounded-3 cursor-pointer"
                 src="./images/trangchu/tintuc1.jpg"
                 alt=""
+                data-bs-toggle="modal"
+                data-bs-target="#notifyModal"
               />
 
-              <a href="" class="text-limit-2 news-title">
+              <p
+                class="text-limit-2 news-title cursor-pointer"
+                data-bs-toggle="modal"
+                data-bs-target="#notifyModal"
+              >
                 Liệu sẽ có cơ hội mới xuất hiện trên thị trường bất động sản
                 trong các tháng cuối năm?
-              </a>
+              </p>
 
               <p class="text-limit-2">
                 Những cú "phanh gấp" khiến thị trường bất động sản chững lại
@@ -620,59 +630,81 @@
               <div class="col">
                 <div class="news-container">
                   <img
-                    class="w-100 rounded-3"
-                    src="./images/trangchu/tintuc1.jpg"
+                    class="w-100 rounded-3 cursor-pointer"
+                    src="./images/trangchu/tintuc2.jpeg"
                     alt=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
                   />
 
-                  <a href="" class="text-limit-2 news-title">
-                    Liệu sẽ có cơ hội mới xuất hiện trên thị trường bất động sản
-                    trong các tháng cuối năm?
-                  </a>
+                  <p
+                    class="text-limit-2 news-title cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
+                  >
+                    Chống lạm phát với phương pháp đầu tư bất động sản dài hạn
+                  </p>
                 </div>
               </div>
               <div class="col">
                 <div class="news-container">
                   <img
-                    class="w-100 rounded-3"
-                    src="./images/trangchu/tintuc1.jpg"
+                    class="w-100 rounded-3 cursor-pointer"
+                    src="./images/trangchu/tintuc3.jpg"
                     alt=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
                   />
 
-                  <a href="" class="text-limit-2 news-title">
-                    Liệu sẽ có cơ hội mới xuất hiện trên thị trường bất động sản
-                    trong các tháng cuối năm?
-                  </a>
+                  <p
+                    class="text-limit-2 news-title cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
+                  >
+                    Một số ngân hàng thực hiện giảm lãi suất vay vào dịp cuối
+                    năm
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row mt-2">
               <div class="col">
                 <div class="news-container">
                   <img
-                    class="w-100 rounded-3"
-                    src="./images/trangchu/tintuc1.jpg"
+                    class="w-100 rounded-3 cursor-pointer"
+                    src="./images/trangchu/tintuc4.jpg"
                     alt=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
                   />
 
-                  <a href="" class="text-limit-2 news-title">
-                    Liệu sẽ có cơ hội mới xuất hiện trên thị trường bất động sản
-                    trong các tháng cuối năm?
-                  </a>
+                  <p
+                    class="text-limit-2 news-title cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
+                  >
+                    Tiêu chí lựa chọn nhà ở của cộng đồng dân cư đô thị
+                  </p>
                 </div>
               </div>
               <div class="col">
                 <div class="news-container">
                   <img
-                    class="w-100 rounded-3"
-                    src="./images/trangchu/tintuc1.jpg"
+                    class="w-100 rounded-3 cursor-pointer"
+                    src="./images/trangchu/tintuc5.jpg"
                     alt=""
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
                   />
 
-                  <a href="" class="text-limit-2 news-title">
-                    Liệu sẽ có cơ hội mới xuất hiện trên thị trường bất động sản
-                    trong các tháng cuối năm?
-                  </a>
+                  <p
+                    class="text-limit-2 news-title cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#notifyModal"
+                  >
+                    Top 10 thành phố triển vọng đầu tư của Châu Á - Thái Bình
+                    Dương 2023 vinh danh TPHCM
+                  </p>
                 </div>
               </div>
             </div>
@@ -680,6 +712,41 @@
         </div>
       </section>
     </main>
+
+    <!-- Notify modal -->
+    <div
+      class="modal fade"
+      id="notifyModal"
+      tabindex="-1"
+      aria-labelledby="notifyModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="notifyModalLabel">Thông báo</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Tính năng đang được phát triển. Vui lòng quay lại sau!
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="go-to-top"><i class="fa-solid fa-arrow-up"></i></div>
 
@@ -772,22 +839,22 @@
             </ul>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <h6 class="fs-4">Hỗ trợ khách hàng</h6>
+            <h6 class="fs-4">Quản trị viên</h6>
             <ul class="p-0">
               <li class="pt-2">
-                <a class="link-secondary" href="">Quy định đăng tin</a>
+                <a class="link-secondary" href="">Ngô Phước Lợi</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Quy chế hoạt động</a>
+                <a href="" class="link-secondary">Trần Lê Quỳnh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Điều khoản sử dụng</a>
+                <a href="" class="link-secondary">Trần Quý Anh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Chính sách bảo mật</a>
+                <a href="" class="link-secondary">Võ Minh Trường</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Hướng dẫn thanh toán</a>
+                <a href="" class="link-secondary">Lê Thị Ánh Xuân</a>
               </li>
             </ul>
           </div>
@@ -796,5 +863,7 @@
     </footer>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js.dev/main.js"></script>
+
+    <script></script>
   </body>
 </html>

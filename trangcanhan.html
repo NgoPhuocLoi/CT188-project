@@ -58,14 +58,21 @@
       </nav>
     </header>
 
-    <main class="container">
-      <div class="row bg-white shadow my-4">
+    <main class="container mt-4">
+      <div class="mb-4 d-flex justify-content-between align-items-center">
+        <h3 class="title-page">Trang cá nhân</h3>
+        <button
+          class="btn btn-outline-success"
+          id="open-changeInfo-btn"
+          data-bs-toggle="modal"
+          data-bs-target="#changeInfo"
+        >
+          Chỉnh sửa thông tin
+        </button>
+      </div>
+      <div class="row bg-white shadow my-4 js-info-wrapper">
         <div class="col-md-6 d-flex p-3">
-          <img
-            src="https://randomuser.me/api/portraits/men/22.jpg"
-            class="rounded-circle"
-            alt=""
-          />
+          <div class="avatar avatar-lg" data-label="A"></div>
           <div class="ms-5">
             <h3>Alfredo Newman</h3>
             <div class="fw-semibold my-1">
@@ -113,6 +120,106 @@
         </div>
       </div>
     </main>
+
+    <!-- change info modal -->
+    <div
+      class="modal fade"
+      id="changeInfo"
+      tabindex="-1"
+      aria-labelledby="changeInfoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="changeInfoLabel">
+              Thay đổi thông tin
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="row g-3 needs-validation"
+              id="change-info-form"
+              novalidate
+            >
+              <div class="col-12">
+                <label for="name" class="form-label">Họ tên</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
+                <div class="invalid-feedback">Vui lòng điền họ tên của bạn</div>
+              </div>
+
+              <div class="col-12">
+                <label for="phone" class="form-label">Số điện thoại</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b"
+                  name="phone"
+                  required
+                />
+                <div class="invalid-feedback">Vui lòng điền SĐT hợp lệ</div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Địa chỉ</label>
+                <div class="row mb-2">
+                  <div class="col-6">
+                    <select class="form-select" name="tinh" id="tinh">
+                      <option selected disabled value="">
+                        Chọn tỉnh thành
+                      </option>
+                      <option class="Cần Thơ">Cần Thơ</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <select class="form-select" name="quan" id="quan">
+                      <option selected disabled value="">
+                        Chọn quận huyện
+                      </option>
+                      <option value="Ô Môn">Ô Môn</option>
+                      <option value="Ninh Kiều">Ninh Kiều</option>
+                      <option value="Cái Răng">Cái Răng</option>
+                      <option value="Bình Thủy">Bình Thủy</option>
+                    </select>
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  name="address"
+                />
+                <div class="invalid-feedback">Vui lòng điền SĐT hợp lệ</div>
+              </div>
+
+              <div class="col-12">
+                <button class="btn btn-primary" type="submit">Cập nhật</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Đóng
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="go-to-top"><i class="fa-solid fa-arrow-up"></i></div>
 
@@ -205,28 +312,54 @@
             </ul>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <h6 class="fs-4">Hỗ trợ khách hàng</h6>
+            <h6 class="fs-4">Quản trị viên</h6>
             <ul class="p-0">
               <li class="pt-2">
-                <a class="link-secondary" href="">Quy định đăng tin</a>
+                <a class="link-secondary" href="">Ngô Phước Lợi</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Quy chế hoạt động</a>
+                <a href="" class="link-secondary">Trần Lê Quỳnh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Điều khoản sử dụng</a>
+                <a href="" class="link-secondary">Trần Quý Anh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Chính sách bảo mật</a>
+                <a href="" class="link-secondary">Võ Minh Trường</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Hướng dẫn thanh toán</a>
+                <a href="" class="link-secondary">Lê Thị Ánh Xuân</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js.dev/main.js"></script>
   </body>

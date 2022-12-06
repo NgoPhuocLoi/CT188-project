@@ -82,10 +82,16 @@
               class="form-input"
               placeholder="Mật Khẩu"
             />
-            <span id="eyeOpen" onclick="showHide()">
+            <span
+              id="eyeOpen"
+              onclick="showHide('password', 'eyeOpen', 'eyeClose')"
+            >
               <i class="fa-solid fa-eye"></i>
             </span>
-            <span id="eyeClose" class="hide" onclick="showHide()"
+            <span
+              id="eyeClose"
+              class="hide"
+              onclick="showHide('password', 'eyeOpen', 'eyeClose')"
               ><i class="fa-solid fa-eye-slash"></i
             ></span>
           </div>
@@ -197,22 +203,22 @@
             </ul>
           </div>
           <div class="col-sm-6 col-lg-3">
-            <h6 class="fs-4">Hỗ trợ khách hàng</h6>
+            <h6 class="fs-4">Quản trị viên</h6>
             <ul class="p-0">
               <li class="pt-2">
-                <a class="link-secondary" href="">Quy định đăng tin</a>
+                <a class="link-secondary" href="">Ngô Phước Lợi</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Quy chế hoạt động</a>
+                <a href="" class="link-secondary">Trần Lê Quỳnh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Điều khoản sử dụng</a>
+                <a href="" class="link-secondary">Trần Quý Anh</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Chính sách bảo mật</a>
+                <a href="" class="link-secondary">Võ Minh Trường</a>
               </li>
               <li class="pt-2">
-                <a href="" class="link-secondary">Hướng dẫn thanh toán</a>
+                <a href="" class="link-secondary">Lê Thị Ánh Xuân</a>
               </li>
             </ul>
           </div>
@@ -220,6 +226,7 @@
       </div>
     </footer>
     <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js.dev/dangnhap.js"></script>
+    <script src="./js.dev/main.js"></script>
+    <!-- <script src="./js.dev/dangnhap.js"></script> -->
   </body>
 </html>
