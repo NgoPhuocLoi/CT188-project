@@ -53,15 +53,3 @@ const red = charred ** 3 % 200;
 const green = chargreen ** 3 % 200;
 const blue = (red + green) % 200;
 avatar1.style.background = `rgb(${red},${green},${blue}`;
-
-function updatebutton(a) {
-  const uwu = document.querySelector(".heart-button");
-  if (a == 1) {
-    uwu.innerHTML =
-      "<button type='button' onclick='updatebutton(0)' class='btn btn-light'><i class='fa-solid fa-heart' style='color:red;'></i> Đã lưu</button>";
-  }
-  if (a == 0) {
-    uwu.innerHTML =
-      " <button type='button' class='btn active btn-outline-danger' onclick='updatebutton(1)' > <i class=' fa-regular fa-heart '></i> Lưu tin</button>";
-  }
-}

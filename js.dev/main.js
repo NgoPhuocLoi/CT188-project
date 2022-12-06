@@ -709,7 +709,10 @@ const users = [
     password: "12345678",
     name: "Nguyễn Văn A",
     phone: "0796863758",
-    favorites: [],
+    favorites: {
+      sale: [],
+      rent: [],
+    },
   },
 ];
 
@@ -759,11 +762,14 @@ function generateRandom(min, max, exclude) {
 
 function renderHousesInMainPage(element, housesList, amount, type) {
   let html = "";
+  const currentUser = JSON.parse(localStorage["currentUser"]);
   for (let i = 0; i < amount; i++) {
     const item = housesList[i];
     html += `<div class="col-lg-3 mt-3">
     <div class="rounded product-info-container shadow hover-outline position-relative">
-      <a href="chitietsanpham.html?type=${type}&id=${item.id}"><img class="w-100" src="${item.images[0]}" alt="" /></a>
+      <a href="chitietsanpham.html?type=${type}&id=${
+      item.id
+    }"><img class="w-100" src="${item.images[0]}" alt="" /></a>
       <a href="chitietsanpham.html?type=${type}&id=${item.id}">
       <div class="product-info border p-2 pb-3">
       <p class="product-price mb-2">
@@ -775,7 +781,9 @@ function renderHousesInMainPage(element, housesList, amount, type) {
         <span><i class="me-1 fa-solid fa-bath"></i>${item.bathrooms}</span>
         <span><i class="me-1 fa-solid fa-compass"></i>${item.direction}</span>
       </div>
-      <a href="chitietsanpham.html?type=${type}&id=${item.id}" class="product-name text-limit-2 mb-2">
+      <a href="chitietsanpham.html?type=${type}&id=${
+      item.id
+    }" class="product-name text-limit-2 mb-2">
         ${item.title}
       </a>
         <div class="product-address">
@@ -787,7 +795,13 @@ function renderHousesInMainPage(element, housesList, amount, type) {
       </div>
       </a>
       <i
-      class="fa-regular fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
+      data-type="${type}"
+      data-id="${item.id}"
+      class="${
+        currentUser?.favorites[type].includes(item.id)
+          ? "fa-solid"
+          : "fa-regular"
+      } fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
       style="top: 10px; right: 10px; cursor: pointer"
     ></i>
     </div>
@@ -798,17 +812,23 @@ function renderHousesInMainPage(element, housesList, amount, type) {
 }
 
 function renderRecommendList(element, housesList, randomIds, type) {
-  console.log(randomIds);
+  const currentUser = JSON.parse(localStorage["currentUser"]);
   function renderHouse(house) {
-    return `<div class="rounded product-info-container">
-    <a href="chitietsanpham.html?type=${type}&id=${house.id}"><img class="w-100" src="${house.images[0]}" alt="" /></a>
+    return `<div class="rounded product-info-container position-relative">
+    <a href="chitietsanpham.html?type=${type}&id=${
+      house.id
+    }"><img class="w-100" src="${house.images[0]}" alt="" /></a>
       <a href="chitietsanpham.html?type=${type}&id=${house.id}">
       <div class="product-info border p-2 pb-3">
       <p class="product-price mb-2">
-        <span class="me-2">${house.totalPrice}</span> ${house.pricePerSquareMetre}
+        <span class="me-2">${house.totalPrice}</span> ${
+      house.pricePerSquareMetre
+    }
       </p>
       
-      <a href="chitietsanpham.html?type=${type}&id=${house.id}" class="product-name text-limit-2 mb-2">
+      <a href="chitietsanpham.html?type=${type}&id=${
+      house.id
+    }" class="product-name text-limit-2 mb-2">
         ${house.title}
       </a>
         <div class="product-address">
@@ -819,6 +839,16 @@ function renderRecommendList(element, housesList, randomIds, type) {
         </div>
       </div>
       </a>
+      <i
+      data-type="${type}"
+      data-id="${house.id}"
+      class="${
+        currentUser?.favorites[type].includes(house.id)
+          ? "fa-solid"
+          : "fa-regular"
+      } fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
+      style="top: 10px; right: 10px; cursor: pointer"
+    ></i>
   </div>`;
   }
   element.innerHTML = `<div class="col">${renderHouse(
@@ -830,6 +860,7 @@ function renderRecommendList(element, housesList, randomIds, type) {
 
 function renderDetailHouse(housesList, id, type) {
   const currentHouse = housesList.find((house) => house.id === +id);
+  const currentUser = JSON.parse(localStorage["currentUser"]);
   const houseFullInformation = document.querySelector(
     ".js-house-full-information"
   );
@@ -898,14 +929,12 @@ function renderDetailHouse(housesList, id, type) {
       <img src="${currentHouse.images[0]}" onclick="openModal();currentSlide(1)"
       class="hover-shadow"/>
     </div>
-    <div class="heart-button">
-      <button
-        type="button"
-        class="btn active btn-outline-danger"
-        onclick="updatebutton(1)"
-      >
-        <i class="tim fa-regular fa-heart"></i> Lưu tin
-      </button>
+    <div class="heart-button" data-id="${currentHouse.id}" data-type="${type}">
+      ${
+        currentUser?.favorites[type].includes(currentHouse.id)
+          ? "<button type='button'  class='btn btn-light'><i class='fa-solid fa-heart' style='color:red;'></i> Đã lưu</button>"
+          : " <button type='button' class='btn active btn-outline-danger'  > <i class=' fa-regular fa-heart '></i> Lưu tin</button>"
+      }
     </div>
   </div>
   <div class="col-md-4 img-right">
@@ -1091,7 +1120,7 @@ function renderDetailHouse(housesList, id, type) {
 
 function renderHousesInProductPage(element, housesList, type) {
   let html = "";
-
+  const currentUser = JSON.parse(localStorage["currentUser"]);
   housesList.forEach((item) => {
     let carouselHtml = "";
     item.images.forEach((imgSrc, index) => {
@@ -1105,7 +1134,7 @@ function renderHousesInProductPage(element, housesList, type) {
     });
 
     html += `<div class="col-lg-4 my-2">
-    <div class="rounded product-info-container hover-outline">
+    <div class="rounded product-info-container hover-outline position-relative">
       <a
         href="chitietsanpham.html?type=${type}&id=${item.id}"
         id="carousel${item.id}"
@@ -1182,7 +1211,9 @@ function renderHousesInProductPage(element, housesList, type) {
           </div>
         </div>
 
-        <a href="chitietsanpham.html?type=${type}&id=${item.id}" class="product-name text-limit-2 mb-2 text-uppercase">
+        <a href="chitietsanpham.html?type=${type}&id=${
+      item.id
+    }" class="product-name text-limit-2 mb-2 text-uppercase">
           ${item.title}
         </a>
         <div class="product-address">
@@ -1192,6 +1223,16 @@ function renderHousesInProductPage(element, housesList, type) {
           </span>
         </div>
       </div>
+      <i
+      data-type="${type}"
+      data-id="${item.id}"
+      class="${
+        currentUser?.favorites[type].includes(item.id)
+          ? "fa-solid"
+          : "fa-regular"
+      } fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
+      style="top: 10px; right: 10px; cursor: pointer;z-index:100;"
+    ></i>
     </div>
   </div>`;
   });
@@ -1205,7 +1246,7 @@ function initUser() {
 }
 
 function logout() {
-  localStorage.setItem("isAuthorized", false);
+  localStorage.removeItem("currentUser");
   navigate("dangnhap.html");
 }
 
@@ -1295,7 +1336,7 @@ function app() {
     const type = url.searchParams.get("type");
     const housesList = type === "sale" ? housesForSale : housesForRent;
     renderDetailHouse(housesList, houseId, type);
-
+    const heartBtn = document.querySelector(".heart-button");
     const recommentLists = document.querySelectorAll(".recommend-list");
 
     recommentLists.forEach((list) => {
@@ -1305,6 +1346,31 @@ function app() {
       }
       renderRecommendList(list, housesList, randomId, type);
     });
+
+    heartBtn.onclick = () => {
+      console.log(123);
+      const currentUser = JSON.parse(localStorage["currentUser"]);
+      if (!currentUser) {
+        alert("Vui lòng đăng nhập để tiếp tục");
+        return;
+      }
+      const id = heartBtn.dataset.id;
+      const type = heartBtn.dataset.type;
+      console.log(currentUser.favorites[type].includes(+id));
+      if (currentUser.favorites[type].includes(+id)) {
+        currentUser.favorites[type].splice(
+          currentUser.favorites[type].indexOf(+id),
+          1
+        );
+        heartBtn.innerHTML =
+          "<button type='button' class='btn active btn-outline-danger' > <i class=' fa-regular fa-heart '></i> Lưu tin</button>";
+      } else {
+        currentUser.favorites[type].push(+id);
+        heartBtn.innerHTML =
+          "<button type='button'  class='btn btn-light'><i class='fa-solid fa-heart' style='color:red;'></i> Đã lưu</button>";
+      }
+      localStorage["currentUser"] = JSON.stringify(currentUser);
+    };
   }
 
   if (currentLocation.includes("dat.html")) {
@@ -1518,7 +1584,10 @@ function app() {
         password: password.value,
         phone: phone.value,
         name: name.value,
-        favorites: [],
+        favorites: {
+          sale: [],
+          rent: [],
+        },
       });
 
       localStorage.setItem("users", JSON.stringify(users));
@@ -1577,6 +1646,7 @@ function app() {
     const userInfoWrapper = document.querySelector(".js-info-wrapper");
     const changeInfoForm = document.getElementById("change-info-form");
     const openChangeInfoBtn = document.getElementById("open-changeInfo-btn");
+    const favoriteWrapper = document.querySelector(".js-favorite-wrapper");
 
     userInfoWrapper.innerHTML = `<div class="col-md-6 d-flex p-3">
     <div class="avatar avatar-lg" data-label="${
@@ -1630,6 +1700,135 @@ function app() {
       thông tin
     </div>
   </div>`;
+    let housesList = housesForSale;
+    let type = "sale";
+    for (let i = 0; i < 2; i++) {
+      housesList.forEach((item) => {
+        if (currentUser.favorites[type].includes(item.id)) {
+          const div = document.createElement("div");
+          div.classList.add("col-lg-4", "my-2");
+          let carouselHtml = "";
+          item.images.forEach((imgSrc, index) => {
+            carouselHtml += `<div class="carousel-item ${
+              index === 0 && "active"
+            }">
+                            <img
+                              src="${imgSrc}"
+                              class="d-block w-100"
+                              alt="..."
+                            />
+                          </div>`;
+          });
+
+          let html = `
+      <div class="rounded product-info-container hover-outline position-relative">
+        <a
+          href="chitietsanpham.html?type=${type}&id=${item.id}"
+          id="carousel${item.id}"
+          class="carousel slide "
+          data-bs-ride="true"
+          data-interval="false"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carousel${item.id}"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carousel${item.id}"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carousel${item.id}"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            ${carouselHtml}
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carousel${item.id}"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carousel${item.id}"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </a>
+        <div class="product-info border p-2 pb-3">
+          <div class="product-price mb-2 d-flex justify-content-between">
+            <span class="me-2">${item.totalPrice}</span>
+            <div class="product-detail">
+              <span class="me-3"
+                ><i class="me-1 fa-solid fa-chart-area"></i>${item.area}</span
+              >
+              <span class="me-3"
+                ><i class="me-1 fa-solid fa-bed"></i>${item.bedrooms}</span
+              >
+              <span class="me-3"
+                ><i class="me-1 fa-solid fa-bath"></i>${item.bathrooms}</span
+              >
+              <span class=""
+                ><i class="me-1 fa-solid fa-compass"></i>${item.direction}</span
+              >
+            </div>
+          </div>
+  
+          <a href="chitietsanpham.html?type=${type}&id=${
+            item.id
+          }" class="product-name text-limit-2 mb-2 text-uppercase">
+            ${item.title}
+          </a>
+          <div class="product-address">
+          <i class="fa-solid fa-location-dot"></i>
+            <span class="ms-2 text-limit-1">
+              ${item.address}
+            </span>
+          </div>
+        </div>
+        <i
+        data-type="${type}"
+        data-id="${item.id}"
+        class="${
+          currentUser?.favorites[type].includes(item.id)
+            ? "fa-solid"
+            : "fa-regular"
+        } fa-heart position-absolute fs-4 text-danger js-toggle-like-btn"
+        style="top: 10px; right: 10px; cursor: pointer;z-index:100;"
+      ></i>
+      </div>
+    `;
+          div.innerHTML = html;
+          favoriteWrapper.appendChild(div);
+        }
+      });
+      housesList = housesForRent;
+      type = "rent";
+    }
 
     const handleAddressChange = () => {
       changeInfoForm.address.value = `${changeInfoForm.quan.value}${
@@ -1668,16 +1867,31 @@ function app() {
   }
 
   const toggleLikes = document.querySelectorAll(".js-toggle-like-btn");
+
   if (toggleLikes) {
     toggleLikes.forEach((btn) => {
       btn.addEventListener("click", (e) => {
+        if (!localStorage["currentUser"]) {
+          alert("Vui lòng đăng nhập để tiếp tục");
+          return;
+        }
+
+        const type = e.target.dataset.type;
+        const id = e.target.dataset.id;
+        const currentUser = JSON.parse(localStorage["currentUser"]);
         if (Array.from(e.target.classList).includes("fa-regular")) {
           e.target.classList.remove("fa-regular");
           e.target.classList.add("fa-solid");
+          currentUser.favorites[type].push(+id);
         } else {
           e.target.classList.remove("fa-solid");
           e.target.classList.add("fa-regular");
+          currentUser.favorites[type].splice(
+            currentUser.favorites[type].indexOf(+id),
+            1
+          );
         }
+        localStorage["currentUser"] = JSON.stringify(currentUser);
       });
     });
   }
