@@ -1128,24 +1128,31 @@ function renderDetailHouse(housesList, id, type) {
 }
 
 function renderHousesInProductPage(element, housesList, type) {
+  const limit = 6;
+  const pageNum = Number.parseInt(housesList.length / limit);
+  const paginationWrapper = document.querySelector(".pagination-wrapper");
+  const currentPage = new URL(window.location).searchParams.get("page") || 1;
+  const offset = (+currentPage - 1) * limit;
   let html = "";
   let currentUser;
   if (localStorage["currentUser"]) {
     currentUser = JSON.parse(localStorage["currentUser"]);
   }
-  housesList.forEach((item) => {
-    let carouselHtml = "";
-    item.images.forEach((imgSrc, index) => {
-      carouselHtml += `<div class="carousel-item ${index === 0 && "active"}">
+  for (let i = offset; i < offset + limit; i++) {
+    const item = housesList[i];
+    if (item) {
+      let carouselHtml = "";
+      item.images.forEach((imgSrc, index) => {
+        carouselHtml += `<div class="carousel-item ${index === 0 && "active"}">
                           <img
                             src="${imgSrc}"
                             class="d-block w-100"
                             alt="..."
                           />
                         </div>`;
-    });
+      });
 
-    html += `<div class="col-lg-4 my-2">
+      html += `<div class="col-lg-4 my-2">
     <div class="rounded product-info-container hover-outline position-relative">
       <a
         href="chitietsanpham.html?type=${type}&id=${item.id}"
@@ -1224,8 +1231,8 @@ function renderHousesInProductPage(element, housesList, type) {
         </div>
 
         <a href="chitietsanpham.html?type=${type}&id=${
-      item.id
-    }" class="product-name text-limit-2 mb-2 text-uppercase">
+        item.id
+      }" class="product-name text-limit-2 mb-2 text-uppercase">
           ${item.title}
         </a>
         <div class="product-address">
@@ -1247,9 +1254,44 @@ function renderHousesInProductPage(element, housesList, type) {
     ></i>
     </div>
   </div>`;
-  });
+    }
+  }
 
   element.innerHTML = html;
+
+  if (pageNum >= 2) {
+    let pageItemHtml = "";
+
+    for (let i = 1; i <= pageNum; i++) {
+      pageItemHtml += `<li class="page-item ${
+        currentPage == i ? "active" : ""
+      }"><a class="page-link" href="${currentLocation}?page=${i}">${i}</a></li>`;
+    }
+    paginationWrapper.innerHTML = `<nav
+    aria-label="Page navigation example"
+    class="d-flex justify-content-center algiin-items-center my-4"
+  >
+    <ul class="pagination">
+      <li class="page-item ${currentPage == 1 ? "disabled" : ""}">
+        <a class="page-link " href="${currentLocation}?page=${
+      +currentPage - 1
+    }" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+
+      ${pageItemHtml}
+
+      <li class="page-item  ${currentPage == pageNum ? "disabled" : ""}">
+        <a class="page-link" href="${currentLocation}?page=${
+      +currentPage + 1
+    }" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>`;
+  }
 }
 
 function initUser() {
@@ -1663,10 +1705,10 @@ function app() {
     const favoriteWrapper = document.querySelector(".js-favorite-wrapper");
 
     userInfoWrapper.innerHTML = `<div class="col-md-6 d-flex p-3">
-    <div class="avatar avatar-lg" data-label="${
+    <div class="avatar avatar-lg me-5" data-label="${
       currentUser.name.split(" ")[currentUser.name.split(" ").length - 1][0]
     }"></div>
-    <div class="ms-5">
+    <div >
       <h3>${currentUser.name}</h3>
       <div class="fw-semibold my-1">
         <span class="text-secondary fw-normal">Số điện thoại: </span>
@@ -1869,7 +1911,10 @@ function app() {
           address: changeInfoForm.address.value,
         };
 
-        localStorage["currentUser"] = JSON.stringify(newUserInfo);
+        localStorage["currentUser"] = JSON.stringify({
+          ...currentUser,
+          ...newUserInfo,
+        });
         let users = JSON.parse(localStorage["users"]);
         users = users.map((user) =>
           user.email === newUserInfo.email ? { ...user, ...newUserInfo } : user
