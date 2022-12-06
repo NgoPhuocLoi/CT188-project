@@ -762,7 +762,10 @@ function generateRandom(min, max, exclude) {
 
 function renderHousesInMainPage(element, housesList, amount, type) {
   let html = "";
-  const currentUser = JSON.parse(localStorage["currentUser"]);
+  let currentUser;
+  if (localStorage["currentUser"]) {
+    currentUser = JSON.parse(localStorage["currentUser"]);
+  }
   for (let i = 0; i < amount; i++) {
     const item = housesList[i];
     html += `<div class="col-lg-3 mt-3">
@@ -812,7 +815,10 @@ function renderHousesInMainPage(element, housesList, amount, type) {
 }
 
 function renderRecommendList(element, housesList, randomIds, type) {
-  const currentUser = JSON.parse(localStorage["currentUser"]);
+  let currentUser;
+  if (localStorage["currentUser"]) {
+    currentUser = JSON.parse(localStorage["currentUser"]);
+  }
   function renderHouse(house) {
     return `<div class="rounded product-info-container position-relative">
     <a href="chitietsanpham.html?type=${type}&id=${
@@ -860,7 +866,10 @@ function renderRecommendList(element, housesList, randomIds, type) {
 
 function renderDetailHouse(housesList, id, type) {
   const currentHouse = housesList.find((house) => house.id === +id);
-  const currentUser = JSON.parse(localStorage["currentUser"]);
+  let currentUser;
+  if (localStorage["currentUser"]) {
+    currentUser = JSON.parse(localStorage["currentUser"]);
+  }
   const houseFullInformation = document.querySelector(
     ".js-house-full-information"
   );
@@ -1120,7 +1129,10 @@ function renderDetailHouse(housesList, id, type) {
 
 function renderHousesInProductPage(element, housesList, type) {
   let html = "";
-  const currentUser = JSON.parse(localStorage["currentUser"]);
+  let currentUser;
+  if (localStorage["currentUser"]) {
+    currentUser = JSON.parse(localStorage["currentUser"]);
+  }
   housesList.forEach((item) => {
     let carouselHtml = "";
     item.images.forEach((imgSrc, index) => {
@@ -1348,12 +1360,11 @@ function app() {
     });
 
     heartBtn.onclick = () => {
-      console.log(123);
-      const currentUser = JSON.parse(localStorage["currentUser"]);
-      if (!currentUser) {
+      if (!localStorage["currentUser"]) {
         alert("Vui lòng đăng nhập để tiếp tục");
         return;
       }
+      const currentUser = JSON.parse(localStorage["currentUser"]);
       const id = heartBtn.dataset.id;
       const type = heartBtn.dataset.type;
       console.log(currentUser.favorites[type].includes(+id));
@@ -1642,7 +1653,10 @@ function app() {
   }
 
   if (currentLocation.includes("trangcanhan")) {
-    const currentUser = JSON.parse(localStorage["currentUser"]);
+    let currentUser;
+    if (localStorage["currentUser"]) {
+      currentUser = JSON.parse(localStorage["currentUser"]);
+    }
     const userInfoWrapper = document.querySelector(".js-info-wrapper");
     const changeInfoForm = document.getElementById("change-info-form");
     const openChangeInfoBtn = document.getElementById("open-changeInfo-btn");
