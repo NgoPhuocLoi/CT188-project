@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chi tiết sản phầm</title>
-    <link rel="stylesheet" href="./css.dev/thongtinsanpham.css" />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
     <link
       rel="stylesheet"
@@ -92,11 +91,9 @@
 
           <a class="prev-button" onclick="plusSlides(-1)">&#10094;</a>
           <a class="next-button" onclick="plusSlides(1)">&#10095;</a>
-          <div class="caption-container">
-            <p id="caption"></p>
-          </div>
+
           <div
-            class="column-images-wrapper d-flex justify-content-center gap-3"
+            class="column-images-wrapper d-flex justify-content-center gap-3 mt-3"
           >
             <div class="column-img">
               <img
@@ -218,13 +215,13 @@
           <div class="cot-4 col-lg-4">
             <!-- Người Đăng -->
             <div
-              class="user-info row rounded border box-shadow mb-3 pt-3 pb-3 mt-5 ms-3"
+              class="user-info row rounded border box-shadow mb-3 pt-3 pb-3 mt-5"
             >
               <div class="row align-items-center">
                 <div class="col-4">
                   <div class="avatar avatar-md" data-label="T"></div>
                 </div>
-                <div class="name col-7 pt-3">
+                <div class="name col-7">
                   <h4>Donald Trump</h4>
                   <p>0 người theo dõi</p>
                   <h6>1000 tin nhà đất đã đăng</h6>
@@ -850,8 +847,53 @@
         </div>
       </div>
     </footer>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js.dev/main.js"></script>
-    <script src="./js.dev/chitiet.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+      // functions for modal
+      // Modal
+      function openModal() {
+        document.getElementById("myModal").style.display = "flex";
+      }
+
+      // Close the Modal
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("demo");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
   </body>
 </html>
